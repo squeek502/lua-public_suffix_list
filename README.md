@@ -1,7 +1,11 @@
 public_suffix_list
 ==================
 
-Simple Lua interface to the [Public Suffix List](https://publicsuffix.org/)
+[![Build Status](https://travis-ci.org/squeek502/lua-public_suffix_list.svg?branch=master)](https://travis-ci.org/squeek502/lua-public_suffix_list)
+
+Simple Lua interface to the [Public Suffix List](https://publicsuffix.org/). New Luarocks builds are automatically created each month using the latest Public Suffix List.
+
+Note: `public_suffix_list.lua` is not checked into the repository. Instead, [`public_suffix_list.dat`](https://publicsuffix.org/list/public_suffix_list.dat) is parsed and converted into a Lua table that is then used to create `public_suffix_list.lua` (from `public_suffix_list.in.lua`); see [Generating](#generating).
 
 ```lua
 local public_suffix_list = require('public_suffix_list')
