@@ -21,7 +21,7 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "$GIT_USER_NAME"
   - git config --local user.email "$GIT_USER_EMAIL"
-  - git tag "v$VERSION"
+  - git tag -f "v$VERSION"
 deploy:
   provider: releases
   api_key:
