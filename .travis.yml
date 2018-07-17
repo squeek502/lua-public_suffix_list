@@ -6,6 +6,7 @@ install:
 - export PATH="$PWD/here/bin:$PATH"
 
 script:
+- wget https://publicsuffix.org/list/public_suffix_list.dat
 - lua generate.lua
 - lua test.lua
 
