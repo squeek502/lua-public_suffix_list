@@ -28,9 +28,11 @@ deploy:
     secure: 4beGTgkXXCSqSFtxP6cNl88YwnErbNF4iw9w1oNTRvDNbFzI4LcT6x4U/qQ9CUYm/hmlOkt15rJLBM+3NtLYp4uk5smFAlABGhYjrwuT6+BI+1gvzFxyBUCyr3m8uZhVov7xAAVQm6qVTnYX+23v0CedCgO39V2mTGpvihdIx+0iwe8bM5F/KYfkomtPPDqtjun7tHGpyMMSvTZGoNXozg8eP+G/YUu4WtkliM0gWXrAbQ9bfHF+Gl8Gh80h39aoN1BP9c3aKOc2/bvFq3DgHoEiOCgusYqpvfI1x9b0ecDR/vd/cgtU3mmM1f/l685ia2JgbLbPNJ4L+2jpNKm7u/pZ2AjbsWbcEaY9Xk3/vz/tiaAQp16R/qwagwV75uM80o5WMHNSifApyvZJ7u1Pvfa99xtaSnkmVLvwOVP646T3vwka23Z9AHH828I/T7RTvkUpRZFegA9TFcJJ3PrRzc4fFaRyIxOdG5UkDD6iQOkAC+ERekgIfHN5UBuCd4gacmA0lYrhWU3hTLAevVunUxegrI0QVMVyT9UdGhwcpeqxAskpjoUOZdWGFPdiPpOq8REFSUwHxWxJ+ooTwrxYG4kpaSo3GjQMTR/CwyqXBhn8AOxZggLmtwFWygjM/0rlk2Dwq8y4ej81Bf96icuAnP46qJc+JphuceGev7Pk4Ss=
   file: public_suffix_list-$VERSION.tar.gz
   skip_cleanup: true
+  overwrite: true
   on:
     repo: squeek502/lua-public_suffix_list
     condition: $TRAVIS_EVENT_TYPE = "cron"
 after_deploy:
   - lua generate.rockspec.lua $VERSION
+  - luarocks install cjson
   - luarocks upload public_suffix_list-$VERSION-1.rockspec --api-key=$LUAROCKS_API_KEY --force
