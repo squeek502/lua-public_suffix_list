@@ -30,6 +30,6 @@ deploy:
   skip_cleanup: true
   on:
     repo: squeek502/lua-public_suffix_list
-    branch: deploy
+    condition: $TRAVIS_EVENT_TYPE = "cron"
 after_deploy:
   - lua generate.rockspec.lua $VERSION
