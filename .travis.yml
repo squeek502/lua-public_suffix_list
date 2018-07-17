@@ -33,3 +33,4 @@ deploy:
     condition: $TRAVIS_EVENT_TYPE = "cron"
 after_deploy:
   - lua generate.rockspec.lua $VERSION
+  - luarocks upload public_suffix_list-$VERSION-1.rockspec --api-key=$LUAROCKS_API_KEY --force
