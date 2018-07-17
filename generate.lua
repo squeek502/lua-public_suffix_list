@@ -87,4 +87,4 @@ local output = input:gsub("[^\r\n]*", serialized, 1)
 outputFile:write(output)
 outputFile:close()
 
-print("Wrote serialized public suffix list to " .. outputPath)
+print("Wrote generated Lua to " .. outputPath)
