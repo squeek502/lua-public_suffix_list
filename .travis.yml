@@ -26,7 +26,6 @@ deploy:
   skip_cleanup: true
   on:
     repo: squeek502/lua-public_suffix_list
-    tags: true
     branch: deploy
 after_deploy:
   - lua generate.rockspec.lua $VERSION
