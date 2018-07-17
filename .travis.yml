@@ -18,7 +18,7 @@ before_deploy:
   - VERSION="$(cat VERSION).$(date +'%Y%m')"
   - mkdir public_suffix_list-$VERSION
   - cp public_suffix_list.lua public_suffix_list-$VERSION/
-  - tar czvpf "public_suffix_list-$VERSION.tar.gz" "luafruits-$VERSION/"
+  - tar czvpf "public_suffix_list-$VERSION.tar.gz" "public_suffix_list-$VERSION/"
 deploy:
   provider: releases
   api_key:
