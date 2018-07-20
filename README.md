@@ -3,9 +3,7 @@ public_suffix_list
 
 [![Build Status](https://travis-ci.org/squeek502/lua-public_suffix_list.svg?branch=master)](https://travis-ci.org/squeek502/lua-public_suffix_list)
 
-Simple Lua interface to the [Public Suffix List](https://publicsuffix.org/). New Luarocks builds are automatically created each month using the latest Public Suffix List.
-
-Note: `public_suffix_list.lua` is not checked into the repository. Instead, [`public_suffix_list.dat`](https://publicsuffix.org/list/public_suffix_list.dat) is parsed and converted into a Lua table that is then used to create `public_suffix_list.lua` (from `public_suffix_list.in.lua`); see [Generating](#generating).
+Simple Lua interface to the [Public Suffix List](https://publicsuffix.org/) rules, intended to be used a building block for implementing the PSL domain parsing algorithm. New Luarocks builds are automatically created each month using the latest Public Suffix List.
 
 ```lua
 local public_suffix_list = require('public_suffix_list')
@@ -22,6 +20,9 @@ luarocks install public_suffix_list
 ```
 
 ## Generating
+Note: `public_suffix_list.lua` is not checked into the repository. Instead, [`public_suffix_list.dat`](https://publicsuffix.org/list/public_suffix_list.dat) is parsed and converted into a Lua table that is then used to create `public_suffix_list.lua` (from `public_suffix_list.in.lua`).
+
+- Clone this repository
 - Download `public_suffix_list.dat` from [here](https://publicsuffix.org/list/public_suffix_list.dat) or [here](https://raw.githubusercontent.com/publicsuffix/list/HEAD/public_suffix_list.dat)
 - Run `lua generate.lua`
 
