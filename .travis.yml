@@ -18,6 +18,8 @@ before_deploy:
   - mkdir public_suffix_list-$VERSION
   - cp public_suffix_list.lua public_suffix_list-$VERSION/
   - tar czvpf "public_suffix_list-$VERSION.tar.gz" "public_suffix_list-$VERSION/"
+  # Delete all existing local tags to ensure the tag added next is the one Travis uses
+  - git tag | xargs git tag -d
   # Set up git user name and tag this commit
   - git config --local user.name "$GIT_USER_NAME"
   - git config --local user.email "$GIT_USER_EMAIL"
