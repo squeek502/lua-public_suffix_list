@@ -1,7 +1,7 @@
 package = "public_suffix_list"
 version = "%VERSION%-%VER_LUAROCKS_REV%"
 source = {
-   url = "https://github.com/squeek502/lua-public_suffix_list/releases/download/v%VERSION%/public_suffix_list-%VERSION%.tar.gz"
+   url = "https://github.com/squeek502/lua-public_suffix_list/releases/download/v%VER_TAG%/public_suffix_list-%VERSION%.tar.gz"
 }
 description = {
    detailed = "Lua interface to the Public Suffix List",

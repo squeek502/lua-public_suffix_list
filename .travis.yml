@@ -14,7 +14,8 @@ notifications:
   email: true
 
 before_deploy:
-  - VERSION="$(cat VERSION).$(date +'%Y%m')"
+  - VER_TAG="$(cat VERSION)"
+  - VERSION="$VER_TAG.$(date +'%Y%m')"
   - mkdir public_suffix_list-$VERSION
   - cp public_suffix_list.lua public_suffix_list-$VERSION/
   - tar czvpf "public_suffix_list-$VERSION.tar.gz" "public_suffix_list-$VERSION/"
@@ -23,7 +24,7 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "$GIT_USER_NAME"
   - git config --local user.email "$GIT_USER_EMAIL"
-  - git tag -f "v$VERSION" "$TRAVIS_COMMIT"
+  - git tag -f "v$VER_TAG" "$TRAVIS_COMMIT"
 deploy:
   provider: releases
   api_key:
